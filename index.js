@@ -38,7 +38,8 @@ function p_string_to_rgb(rgb_string) {
 }
 
 function p_hash(str) {
-    for (let i = 0, h = 0; i < str.length; i++)
+    let h = 0;
+    for (let i = 0; i < str.length; i++)
         h = Math.imul(31, h) + str.charCodeAt(i) | 0;
     return h;
 }

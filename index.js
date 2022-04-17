@@ -38,10 +38,14 @@ function p_string_to_rgb(rgb_string) {
 }
 
 function p_hash(str) {
-    let h = 0;
-    for (let i = 0; i < str.length; i++)
-        h = Math.imul(31, h) + str.charCodeAt(i) | 0;
-    return h;
+    var hash = 0;
+    if (str.length == 0) return hash;
+    for (i = 0; i < str.length; i++) {
+        char = str.charCodeAt(i);
+        hash = ((hash<<5)-hash)+char;
+        hash = hash & hash; //convert to 32 bit integer
+    }
+    return hash;
 }
 
 /*******************************************************************************
